@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap');
+    html,body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+    .flex{
+    display: flex;
+}
+.flex-img{
+    width: 32px;
+    height: 23px;
+}
+
+nav ul li{
+    list-style: none;
+    padding: 0 12px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.item-center{
+    align-items: center;
+}
+.justify{
+    justify-content: center;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.space-between{
+    justify-content: space-between;
+    padding-top: 12px;
+}
+.mx-2{
+    margin-left: 12px;
+    margin-right: 12px;
+    font-weight: 700;
+}
+.section1{
+    background-color: #ffffff;
+}
+header{
+    position: sticky;
+    background-color: white;
+    top: 0;
+    height: 66px;
+box-shadow: rgb(0 0 0 / 4%) 0.95px 0.95px 0.6px;
+
+}
+.search{
+        width: 18vw;
+    padding: 7px 7px;
+    border: 0.5px solid grey;
+    background: #f7f8fd;
+    border-radius: 5px;
+}
+.homeImg{
+    width: 80vw;
+    margin: 12px 0px;
+}
+.ItemImg{
+    width: 10vw;
+    margin: 6px 12px;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+footer{
+  padding: 23px;
+  text-align: center;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+.rightBox{
+    display: flex;
+    margin: 12px;
+  }
+  .containerHeader{ 
+  padding: 0 10vw; 
+}
+@media (max-width: 450px) { 
+.search {
+    width: 72vw; 
+}
+}
+
+@media (max-width: 1300px) { 
+
+  nav ul li {
+    list-style: none;
+    padding: 0 4px;
+    font-size: 10px;
+}
+ .containerHeader {
+    padding: 0 2vw;
+}
+  header{ 
+  height:122px;
+}  
+ nav{
+    flex-direction: column;
+    align-items: center;
+  }
+  .right{ 
+    flex-direction: column;
+  }
+ .rightBox{
+    display: flex;
+    margin: 12px;
+  }
+}
+</style>
+ 
+</head>
+<body>
+    <header class="containerHeader">
+        <nav class="flex space-between">
+            <div class="left flex item-center">
+                 <img class="flex-img" src="myntralogo.png">
+                 <ul class="flex justify item-center uppercase">
+                    <li> Men </li>
+                    <li> Women </li>
+                    <li> Kids </li>
+                    <li> Home and Living </li>
+                     <li> Beauty </li>
+                      <li> Studio </li>
+                 </ul>
+            </div>
+            <div class="right flex item-center">
+                <input class="search" placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904" type="text">
+                <div class="rightBox">
+                <div class="profile mx-2">Profile</div>
+                <div class="wishlist mx-2">Wishlist</div>
+                <div class="bag mx-2">Bag</div>
+            </div>
+            </div>
+        </nav>
+    </header>
+   <section class="container section1">
+   <img class="homeImg" src="home.png"/>
+       <img class="homeImg" src="home2.gif"/>
+    <img class="homeImg" src="home3.webp"/>
+   </section>
+   <section class="container section1 flex ">
+   <img class="ItemImg" src="home4.webp"/>
+    <img class="ItemImg" src="home5.webp"/>
+     <img class="ItemImg" src="home6.webp"/>
+      <img class="ItemImg" src="home7.webp"/>
+       <img class="ItemImg" src="home8.webp"/>
+        <img class="ItemImg" src="home9.webp"/>
+         <img class="ItemImg" src="home10.webp"/>
+   </section>
+   <footer >
+    copyright &copy: Myntra.com | All Rights Reserved 
+   </footer>
+ </body>
+</body>
+</html>

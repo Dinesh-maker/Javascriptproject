@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style>
+     #temp{
+         font-size: 80px;
+         font-weight: 700;
+     }
+     .text{
+           font-size: 70px;
+         font-weight: 600;
+     }
+ </style>
+</head>
+<body style="background-color: rgb(16, 16, 116)">
+    <div id="main-div" class="container text-center mt-5 text-white" >
+      <h1>Can you turn on the ligh?</h1>
+        <img src="lightoff.jpg" id="myimg"  />
+     <button class="mr-2 bg-warning" onclick="document.getElementById('myimg').src='lighton.jpg'"><b>Turn On</b></button>
+     <button class="ml-5 bg-warning" onclick="document.getElementById('myimg').src='lightoff.jpg'"><b>Turn Off</b></button>
+    
+   <h1 class="text-white mt-5 text" > I am Thermometer <span id="temp" class="fa" ></span></h1>
+     <script>
+         const tempload=()=>{
+             let temp=document.getElementById('temp');
+             temp.innerHTML="&#xf2cb";
+             setTimeout(()=>{
+              temp.innerHTML="&#xf2ca";
+               temp.style.color="#f8b627";
+             },1000);
+              setTimeout(()=>{
+              temp.innerHTML="&#xf2c9";
+             },2000);
+              setTimeout(()=>{
+              temp.innerHTML="&#xf2c8";
+             },3000);
+              setTimeout(()=>{
+              temp.innerHTML="&#xf2c7";
+              temp.style.color="#d63031";
+             },4000)
+         }
+         tempload();
+         setInterval(tempload,5000);
+     </script>
+     <div class="mt-5 mb-3">
+         <h1 class="text-white">Temprature calculation</h1><br>
+    <form id="tempcal" onsubmit="calculatetemp();return false" > 
+    <label for="temp1" class="text-white">Please Enter Temp Value:</label>
+    <input type="number" name="temp" id="temp1">
+    <select name="temp_diff" id="temp_diff">
+    <option value="cel">Celsius</option>
+    <option value="fah">Fahrenheit</option> 
+    </select><br />
+    <input type="submit" name="temp">
+    <span  id="result"></span>
+    </form>
+    <script>
+        const calculatetemp = () =>{
+            const numbertemp=document.getElementById('temp1').value;
+            const tempselected=document.getElementById('temp_diff');
+            const valuetemp=temp_diff.options[tempselected.selectedIndex].value;
+    const celTofeh=(cel)=>{
+           let fehrn=Math.round((cel*9/5)+32);
+           return fehrn;
+    }
+      const fehTocel=(feh)=>{
+           let celci=Math.round((feh-32)*5/9);
+           return celci;
+    }
+            let result;
+            if(valuetemp=='cel'){
+                result=celTofeh(numbertemp);
+                document.getElementById('result').innerHTML=`${result} Fahrenheit`;
+            } else{
+                 result=fehTocel(numbertemp);
+                document.getElementById('result').innerHTML=`${result} Celsius`;
+            }
+
+        }
+            
+    </script>
+     </div>
+     </div>
+   
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop watch Timer</title>
+  <style>
+ p {
+    font-size: 50px;
+ }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center">
+  <h1>Javascript stopwatch</h1>
+  <p><span id="hour">00</span>:<span id="second">00</span>:<span id="tens">00</span></p>
+  <button id="btn-start">Start</button>
+  <button id="btn-stop">Stop</button>
+  <button id="btn-reset">Reset</button>
+  </div>
+ <script>
+    var hour=00;
+    var second=00;
+    var tens=00;
+     let outputhour =document.getElementById('hour');
+    let outputseconds =document.getElementById('second');
+    let outputtens = document.getElementById('tens');
+    let buttonstart=document.getElementById('btn-start');
+     let buttonstop=document.getElementById('btn-stop');
+      let buttonreset=document.getElementById('btn-reset');
+    var Interval;
+  buttonstart.addEventListener('click',()=>{
+     clearInterval(Interval);
+     Interval=setInterval(startTime,10);
+  });
+  buttonstop.addEventListener('click',()=>{
+    clearInterval(Interval);
+  });
+
+  buttonreset.addEventListener('click',()=>{
+    clearInterval(Interval);
+    hour='00';
+    second ='00';
+    tens='00';
+     outputhour.innerHTML=hour;
+    outputseconds.innerHTML=second;
+    outputtens.innerHTML=tens;
+  });
+
+  function startTime(){
+    tens++;
+    if(tens<=9){
+        outputtens.innerHTML="0" + tens;
+    }
+    if(tens>9){
+        outputtens.innerHTML=tens;
+    }
+    if(tens>99){
+        second++;
+        outputseconds.innerHTML="0"+second;
+        tens=0;
+        outputtens.innerHTML="0"+ tens;
+    }
+    if(second>9){
+           outputseconds.innerHTML=second;
+    }
+    if(second>60){
+        hour++;
+        outputhour.innerHTML="0"+hour;
+        second=0;
+        outputseconds.innerHTML="0"+ second;
+    }
+    if(hour>9){
+        outputhour.innerHTML=hour;
+    }
+  }
+       
+ </script>
+</body>
+</html>

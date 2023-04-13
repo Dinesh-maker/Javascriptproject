@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
+ 
+ <style>
+   .main-div{
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+    background-color: rgb(127, 179, 228);
+    display: grid;
+   }
+   .inner-div{
+    width: 45vw;
+    background-color: aliceblue;
+    padding: 3rem 9rem;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem -0.7rgba(0, 0, 0, 0.4)
+   }
+   .scorearea{
+    display: none;
+   }
+ </style>
+</head>
+<body >
+ <div class=" main-div ">
+  <div class="inner-div"> 
+  <h3 id="question"> Questions comes from here</h3><br>
+  <ul style="list-style: none;">
+    <li>
+        <input type="radio" name="answer" id="ans1" class="answer">
+        <label for="ans1" id="option1">Answer Option 1</label>
+    </li>
+    <li>
+        <input type="radio" name="answer" id="ans2" class="answer" >
+        <label for="ans2" id="option2">Answer Option 1</label>
+    </li>
+    <li>
+        <input type="radio" name="answer" id="ans3" class="answer">
+        <label for="ans3" id="option3">Answer Option 1</label>
+    </li>
+    <li>
+        <input type="radio" name="answer" id="ans4" class="answer">
+        <label for="ans4" id="option4">Answer Option 1</label>
+    </li>
+  </ul>
+  <button type="submit" id="submit">Submit</button>
+  <div id="showscore" class="socrearea"></div>
+  </div>
+ </div>
+ <script>
+    const quizdb=[
+    {
+        question:"Q1. What is the capital of india?",
+        a:"Mumbai",
+        b:"Delhi",
+        c:"Jaipur",
+        d:"Chandigarh",
+        ans:"ans2"
+    },
+    {
+        question:"Q2. What is the capital of Rajasthan?",
+        a:"Mumbai",
+        b:"Delhi",
+        c:"Jaipur",
+        d:"Chandigarh",
+        ans:"ans3"
+    },
+    {
+        question:"Q3. What is the capital of Haryana?",
+        a:"Mumbai",
+        b:"Delhi",
+        c:"Jaipur",
+        d:"Chandigarh",
+        ans:"ans4"
+    },
+    ]
+     let questions=document.getElementById('question');
+     let optionA =document.getElementById('option1');
+    let optionB =document.getElementById('option2');
+    let optionC =document.getElementById('option3');
+    let optionD =document.getElementById('option4'); 
+    let submit=document.getElementById('submit');
+    let answers=document.querySelectorAll(".answer");
+    let showscore=document.querySelector("#showscore");
+     var counterquestion=0;
+     var score=0;
+     const uploadQuestions=()=> {
+        
+        let questionlist=quizdb[counterquestion];
+        questions.innerHTML=questionlist.question;
+        optionA.innerHTML=questionlist.a;
+        optionB.innerHTML=questionlist.b;
+        optionC.innerHTML=questionlist.c;
+        optionD.innerHTML=questionlist.d;
+
+     }
+
+     uploadQuestions();
+
+  const getcheckans=()=>{
+    let ans;
+    answers.forEach((curansElement)=>{
+        if(curansElement.checked){
+            ans=curansElement.id;
+        }
+    });
+     return ans;
+  }
+  const deslectall=()=>{
+    answers.forEach((curansElement)=> curansElement.checked=false);
+  }
+
+     submit.addEventListener('click',()=>{
+        const getcheckanswer=getcheckans();
+        console.log(getcheckanswer);
+        if(getcheckanswer==quizdb[counterquestion].ans){
+            score++;
+        }
+       
+        counterquestion++;
+         deslectall();
+        if(counterquestion<quizdb.length){
+            uploadQuestions();
+        }
+        else{
+             showscore.innerHTML=`<h1> You scored </h1>
+                  <h2> ${score}/${quizdb.length}</h2><br>
+               <button onclick="location.reload()">Restart</button>`
+        }
+     })
+ </script>
+</body>
+</html>

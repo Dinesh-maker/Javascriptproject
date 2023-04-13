@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep Diary</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
+<style>
+ .col-md-6{
+      box-shadow: -3px -3px 7px #ffffff73,
+              2px 2px 5px rgba(94, 104, 121, 0.288)
+ }
+
+ .delete{
+     float: right;
+     color: crimson;
+     background-color: rgb(255, 255, 255);
+ }
+ .delete:hover{
+     background-color: red;
+   color: aliceblue;
+ }
+</style>
+</head>
+<header>
+    <div   class=" text-center bg-image" style="background-image: url('moviebg.jpg'); height: 180px; " >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mt-5"> My Favourite Movies</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<body>
+{{!-- <div class=" container mt-3">
+<div class="row">
+<div class="col-md-6 p-3 ">
+  <button class="delete"><i class="fa fa-trash-alt"></i></button>
+ <h3>This is the First Column</h3>
+</div>
+<div class="col-md-6 p-3">
+  <button class="delete"><i class="fa fa-trash-alt"></i></button>
+<h3>This is the Second Coulmn</h3> 
+</div>
+</div>
+</div> --}}
+<div class="container">
+
+</div>
+<form class="container form-inline mt-3 ">
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" class="form-control" id="text" placeholder="Add New Movie">
+  </div>
+  <button class="btn btn-success mb-2" onclick="newmovie();" id="add" >Add</button>
+</form>
+<script>
+  function newmovie(){
+ const divclass=document.querySelector('.container');
+ divclass.innerHTML=`<div class="col-md-6 p-3">
+  <button class="delete"><i class="fa fa-trash-alt"></i></button>
+<h3>This is the Second Coulmn</h3> 
+</div>`;
+ 
+  }
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
+ 
+ <style>
+   .counter{
+       color: rgb(223, 240, 111);
+       font-size: 25px;
+   }
+  .text{
+      font-size: 15px;
+      color: aliceblue;
+  }
+  .fa{
+      color: aliceblue;
+  }
+ </style>
+</head>
+<body style="background-color: rgb(16, 16, 116)">
+ <div class="container mt-5">
+ <div class="row">
+ <div class="col-4" >
+<i class="fa fa-mug-hot  fa-3x"></i>
+<div class="counter " data-target="400"></div>
+<p class="text" >Project Completed</p>
+ </div>
+ <div class="col-4 " >
+     <i class="fa fa-users fa-3x"></i>
+     <div class="counter" data-target="15000"></div>
+ <p class="text" >Our Happy Clinets</p>
+ </div>
+ <div class="col-4" >
+     <i class="fa fa-tasks fa-3x"></i>
+     <div class="counter"data-target="500"></div>
+<p class="text" >Ongoing Projects</p>
+ </div>
+ </div>
+ </div>
+ <script>
+     const counters=document.querySelectorAll('.counter');
+     counters.forEach((counter)=>{
+           counter.innerHTML=0;
+           
+        const updatecounter=()=>{
+            const targetcount=+counter.getAttribute('data-target'); //+str convert into number 
+            //console.log(targetcount);
+            const startingcount=Number(counter.innerHTML);
+            const incr=targetcount/100;
+            if(startingcount<targetcount){
+                counter.innerHTML=`${Math.round(startingcount+incr)}`;
+                setTimeout(updatecounter,10);
+            } else{
+                counter.innerHTML=targetcount;
+            }
+        }
+
+           updatecounter();
+     })
+     
+ </script>
+</body>
+</html>
