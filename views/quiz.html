@@ -14,13 +14,17 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
  
  <style>
-   .main-div{
+    body{
+        background-color: rgb(127, 179, 228);
+        place-items: center;
+    }
+  /* .main-div{
     width: 100vw;
     height: 100vh;
-    place-items: center;
-    background-color: rgb(127, 179, 228);
+    
+ 
     display: grid;
-   }
+   }*/
    .inner-div{
     width: 45vw;
     background-color: aliceblue;
@@ -34,7 +38,35 @@
  </style>
 </head>
 <body >
- <div class=" main-div ">
+<div class="container mt-5 bg-white">
+<div class="row">
+<div class="col-sm-6 my-5 pl-5">
+    <h3 id="question"> Questions comes from here</h3><br>
+    <ul style="list-style: none;">
+        <li>
+            <input type="radio" name="answer" id="ans1" class="answer">
+            <label for="ans1" id="option1">Answer Option 1</label>
+        </li>
+        <li>
+            <input type="radio" name="answer" id="ans2" class="answer" >
+            <label for="ans2" id="option2">Answer Option 1</label>
+        </li>
+        <li>
+            <input type="radio" name="answer" id="ans3" class="answer">
+            <label for="ans3" id="option3">Answer Option 1</label>
+        </li>
+        <li>
+            <input type="radio" name="answer" id="ans4" class="answer">
+            <label for="ans4" id="option4">Answer Option 1</label>
+        </li>
+      </ul>
+      <button type="submit" id="submit">Submit</button>
+      <div id="showscore" class="socrearea"></div>
+</div>
+</div>
+</div>
+
+ <!-- <div class=" main-div ">
   <div class="inner-div"> 
   <h3 id="question"> Questions comes from here</h3><br>
   <ul style="list-style: none;">
@@ -58,7 +90,7 @@
   <button type="submit" id="submit">Submit</button>
   <div id="showscore" class="socrearea"></div>
   </div>
- </div>
+ </div> -->
  <script>
     const quizdb=[
     {
